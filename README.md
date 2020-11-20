@@ -1,2 +1,2 @@
 # bash
-Bash script challenges for Bi0s Pentest
+Bash script tasks for Bi0s Pentest
