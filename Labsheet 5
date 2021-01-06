@@ -1,0 +1,255 @@
+alwin@alwin-VirtualBox:~$ pwd
+/home/alwin
+alwin@alwin-VirtualBox:~$ mkdir main
+alwin@alwin-VirtualBox:~$ ls
+bandit24test.sh  Documents  main   Pictures  Templates
+Desktop          Downloads  Music  Public    Videos
+alwin@alwin-VirtualBox:~$ cd main
+alwin@alwin-VirtualBox:~/main$ mkdir -p Dir1/Dir2/Dir3
+alwin@alwin-VirtualBox:~/main$ ls
+Dir1
+alwin@alwin-VirtualBox:~/main$ pwd
+/home/alwin/main
+alwin@alwin-VirtualBox:~/main$ cd Dir3
+bash: cd: Dir3: No such file or directory
+alwin@alwin-VirtualBox:~/main$ cd Dir2
+bash: cd: Dir2: No such file or directory
+alwin@alwin-VirtualBox:~/main$ cd Die1
+bash: cd: Die1: No such file or directory
+alwin@alwin-VirtualBox:~/main$ cd Dir1
+alwin@alwin-VirtualBox:~/main/Dir1$ ls
+Dir2
+alwin@alwin-VirtualBox:~/main/Dir1$ cd ..
+alwin@alwin-VirtualBox:~/main$ ls
+Dir1
+alwin@alwin-VirtualBox:~/main$ cd /Dir1/Dir2/Dir3
+bash: cd: /Dir1/Dir2/Dir3: No such file or directory
+alwin@alwin-VirtualBox:~/main$ ls
+Dir1
+alwin@alwin-VirtualBox:~/main$ cd /home/alwin/main/Dir1/Dir2/Dir3
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2/Dir3$ ls
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2/Dir3$ cat > demo1 <<eof
+> This is my first file in shell.
+> I can edit this file!!
+> eof
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2/Dir3$ cat > demo2 <<eof
+> Hi !!! This is the second file.
+> I am doing shell commands.
+> I can edit this file!!!
+> eof
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2/Dir3$ cat demo1
+This is my first file in shell.
+I can edit this file!!
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2/Dir3$ ls
+demo1  demo2
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2/Dir3$ cd Dir 2
+bash: cd: too many arguments
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2/Dir3$ cd ..
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2$ cd
+alwin@alwin-VirtualBox:~$ ls -a
+.                .config     .local    Public
+..               Desktop     main      .ssh
+bandit24test.sh  Documents   .mozilla  .sudo_as_admin_successful
+.bash_history    Downloads   Music     Templates
+.bash_logout     .gconf      Pictures  .thunderbird
+.bashrc          .gitconfig  .pki      Videos
+.cache           .gnupg      .profile  .wget-hsts
+alwin@alwin-VirtualBox:~$ cat > test1 <<eof
+> I am working with linux shell.
+> Good bye
+> eof
+alwin@alwin-VirtualBox:~$ cp test1 test2
+alwin@alwin-VirtualBox:~$ ls
+bandit24test.sh  Documents  main   Pictures  Templates  test2
+Desktop          Downloads  Music  Public    test1      Videos
+alwin@alwin-VirtualBox:~$ cat test1
+I am working with linux shell.
+Good bye
+alwin@alwin-VirtualBox:~$ cat test2
+I am working with linux shell.
+Good bye
+alwin@alwin-VirtualBox:~$ mv test2 test3
+alwin@alwin-VirtualBox:~$ file test3
+test3: ASCII text
+alwin@alwin-VirtualBox:~$ mv test3 Dir3
+alwin@alwin-VirtualBox:~$ ls
+bandit24test.sh  Dir3       Downloads  Music     Public     test1
+Desktop          Documents  main       Pictures  Templates  Videos
+alwin@alwin-VirtualBox:~$ mv Dir3 test3
+alwin@alwin-VirtualBox:~$ ls
+bandit24test.sh  Documents  main   Pictures  Templates  test3
+Desktop          Downloads  Music  Public    test1      Videos
+alwin@alwin-VirtualBox:~$ mv test3 /home/alwin/main/Dir1/Dir2/Dir3
+alwin@alwin-VirtualBox:~$ ls
+bandit24test.sh  Documents  main   Pictures  Templates  Videos
+Desktop          Downloads  Music  Public    test1
+alwin@alwin-VirtualBox:~$ cat > count << eof
+> One
+> Two
+> Three
+> Four
+> Five
+> Six
+> Seven
+> Eight
+> Nine
+> Ten
+> Eleven
+> Twelve
+> Thirteen
+> Fourteen
+> Fifteen
+> Sixteen
+> Seventeen
+> Eighteen
+> Nineteen
+> Twenty
+> eof
+alwin@alwin-VirtualBox:~$ cat count > count2
+alwin@alwin-VirtualBox:~$ ls
+bandit24test.sh  count2   Documents  main   Pictures  Templates  Videos
+count            Desktop  Downloads  Music  Public    test1
+alwin@alwin-VirtualBox:~$ cat > count3 << eof
+> Twenty One
+> Twenty Two
+> Twenty Three
+> Twenty Four
+> Twenty Five
+> eof
+alwin@alwin-VirtualBox:~$ cat count2 count3 > countfinal
+alwin@alwin-VirtualBox:~$ ls
+bandit24test.sh  count3      Documents  Music     Templates
+count            countfinal  Downloads  Pictures  test1
+count2           Desktop     main       Public    Videos
+alwin@alwin-VirtualBox:~$ cat countfinal
+One
+Two
+Three
+Four
+Five
+Six
+Seven
+Eight
+Nine
+Ten
+Eleven
+Twelve
+Thirteen
+Fourteen
+Fifteen
+Sixteen
+Seventeen
+Eighteen
+Nineteen
+Twenty
+Twenty One
+Twenty Two
+Twenty Three
+Twenty Four
+Twenty Five
+alwin@alwin-VirtualBox:~$ rmdir demo1
+rmdir: failed to remove 'demo1': No such file or directory
+alwin@alwin-VirtualBox:~$ ls Dir3
+ls: cannot access 'Dir3': No such file or directory
+alwin@alwin-VirtualBox:~$ ls
+bandit24test.sh  count3      Documents  Music     Templates
+count            countfinal  Downloads  Pictures  test1
+count2           Desktop     main       Public    Videos
+alwin@alwin-VirtualBox:~$ cd Dir3
+bash: cd: Dir3: No such file or directory
+alwin@alwin-VirtualBox:~$ cd /home/alwin/main/Dir1/Dir2/Dir3
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2/Dir3$ ls
+demo1  demo2  test3
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2/Dir3$ cd ,,
+bash: cd: ,,: No such file or directory
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2/Dir3$ cd ..
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2$ rmdir Dir3
+rmdir: failed to remove 'Dir3': Directory not empty
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2$ cd
+alwin@alwin-VirtualBox:~$ rm demo1
+rm: cannot remove 'demo1': No such file or directory
+alwin@alwin-VirtualBox:~$ rm /home/alwin/main/Dir1/Dir2/Dir2/Dir3/demo1
+rm: cannot remove '/home/alwin/main/Dir1/Dir2/Dir2/Dir3/demo1': No such file or directory
+alwin@alwin-VirtualBox:~$ rm demo1 demo2
+rm: cannot remove 'demo1': No such file or directory
+rm: cannot remove 'demo2': No such file or directory
+alwin@alwin-VirtualBox:~$ rm /home/alwin/main/Dir1/Dir2/Dir3/demo1 /home/alwin/main/Dir1/Dir2/Dir3/demo2
+alwin@alwin-VirtualBox:~$ cd /home/alwin/main/Dir1/Dir2/Dir3
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2/Dir3$ ls
+test3
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2/Dir3$ cd ..
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2$ rmdir Dir3
+rmdir: failed to remove 'Dir3': Directory not empty
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2$ rm test3
+rm: cannot remove 'test3': No such file or directory
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2$ rm /Dir3/test3
+rm: cannot remove '/Dir3/test3': No such file or directory
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2$ rm /Dir2/Dir3/test3
+rm: cannot remove '/Dir2/Dir3/test3': No such file or directory
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2$ rm /home/alwin/main/Dir1/Dir2/Dir3/test3
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2$ rmdir Dir3
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2$ ls
+alwin@alwin-VirtualBox:~/main/Dir1/Dir2$ cd
+alwin@alwin-VirtualBox:~$ rm /home/alwin/main/Dir1/Dir2
+rm: cannot remove '/home/alwin/main/Dir1/Dir2': Is a directory
+alwin@alwin-VirtualBox:~$ rmdir /home/alwin/main/Dir1/Dir2
+alwin@alwin-VirtualBox:~$ head countfinal
+One
+Two
+Three
+Four
+Five
+Six
+Seven
+Eight
+Nine
+Ten
+alwin@alwin-VirtualBox:~$ tail countfinal
+Sixteen
+Seventeen
+Eighteen
+Nineteen
+Twenty
+Twenty One
+Twenty Two
+Twenty Three
+Twenty Four
+Twenty Five
+alwin@alwin-VirtualBox:~$ head -5 countfinal
+One
+Two
+Three
+Four
+Five
+alwin@alwin-VirtualBox:~$ tail -4 countfinal
+Twenty Two
+Twenty Three
+Twenty Four
+Twenty Five
+alwin@alwin-VirtualBox:~$ tac countfinal
+Twenty Five
+Twenty Four
+Twenty Three
+Twenty Two
+Twenty One
+Twenty
+Nineteen
+Eighteen
+Seventeen
+Sixteen
+Fifteen
+Fourteen
+Thirteen
+Twelve
+Eleven
+Ten
+Nine
+Eight
+Seven
+Six
+Five
+Four
+Three
+Two
+One
+
