@@ -1,0 +1,69 @@
+alwin@alwin-VirtualBox:~$ cat > demo << eof
+> Student Alice Essentials 20 PSAT 22 Maths 34 Cultural 25 English 70
+> Student Bob Essentials 23 PSAT 21 Maths 32 Cultural 25 English 94
+> Student Boby Essentials 43 PSAT 31 Maths 22 Cultural 8 English 93
+> Student Clara Essentials 18 PSAT 16 Maths 27 Cultural 12 English 45
+> Student Drick Essentials 25 PSAT 23 Maths 48 Cultural 25 English 98
+> Student Eve Essentials 8 PSAT 6 Maths 12 Cultural 13 English 5
+> eof
+alwin@alwin-VirtualBox:~$ grep "Clara" demo
+Student Clara Essentials 18 PSAT 16 Maths 27 Cultural 12 English 45
+alwin@alwin-VirtualBox:~$ cut -d " " -f 4 demo | sort -n
+8
+18
+20
+23
+25
+43
+alwin@alwin-VirtualBox:~$ cut -d " " -f 6 demo | sort -n | tail -1
+31
+alwin@alwin-VirtualBox:~$ cut -d " " -f 10 demo | sort -n | head -1
+8
+alwin@alwin-VirtualBox:~$ cut -d " " -f 8 demo | tee mathsmarks
+34
+32
+22
+27
+48
+12
+alwin@alwin-VirtualBox:~$ cat demo | cut -d " " -f 2 demo | cut -c 3-
+ice
+b
+by
+ara
+ick
+e
+alwin@alwin-VirtualBox:~$ cat demo | cut -d " " -f 2 demo | cut -c -3
+Ali
+Bob
+Bob
+Cla
+Dri
+Eve
+alwin@alwin-VirtualBox:~$ tr a-z A-Z < demo
+STUDENT ALICE ESSENTIALS 20 PSAT 22 MATHS 34 CULTURAL 25 ENGLISH 70
+STUDENT BOB ESSENTIALS 23 PSAT 21 MATHS 32 CULTURAL 25 ENGLISH 94
+STUDENT BOBY ESSENTIALS 43 PSAT 31 MATHS 22 CULTURAL 8 ENGLISH 93
+STUDENT CLARA ESSENTIALS 18 PSAT 16 MATHS 27 CULTURAL 12 ENGLISH 45
+STUDENT DRICK ESSENTIALS 25 PSAT 23 MATHS 48 CULTURAL 25 ENGLISH 98
+STUDENT EVE ESSENTIALS 8 PSAT 6 MATHS 12 CULTURAL 13 ENGLISH 5
+alwin@alwin-VirtualBox:~$ cat demo | cut -d " " -f 2 demo | tr -d a
+Alice
+Bob
+Boby
+Clr
+Drick
+Eve
+alwin@alwin-VirtualBox:~$ cat demo | tr -d s | wc -l -w -m demo
+  6  72 399 demo
+alwin@alwin-VirtualBox:~$ cat demo | tr -d s | wc demo
+  6  72 399 demo
+alwin@alwin-VirtualBox:~$ cat demo | cut -d " " -f 2 demo | grep -E 'a|e|i' | wc -l
+4
+alwin@alwin-VirtualBox:~$ grep -i b demo
+Student Bob Essentials 23 PSAT 21 Maths 32 Cultural 25 English 94
+Student Boby Essentials 43 PSAT 31 Maths 22 Cultural 8 English 93
+alwin@alwin-VirtualBox:~$ cat demo | cut -d " " -f 2 demo | grep B | grep y
+Boby
+alwin@alwin-VirtualBox:~$ 
+
